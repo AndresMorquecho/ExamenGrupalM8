@@ -8,7 +8,12 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 const authRoutes = require("./routes/authRoutes");
+const booksRoutes = require("./routes/booksRoutes");
+const loansRoutes = require("./routes/loansRoutes");
+
+app.use("/api", booksRoutes);
 app.use("/api", authRoutes);
+app.use("/api", loansRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
